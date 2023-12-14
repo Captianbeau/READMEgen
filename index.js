@@ -44,10 +44,9 @@ inquirer
             message:'Type how to test your project.',
             name:'tests',
         },
-    ]).then((answer)=>{
-        
-    })
-const questions = [];
+    ]).then(answer)
+    
+const questions = [...answer];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
