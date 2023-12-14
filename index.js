@@ -6,17 +6,17 @@ inquirer
     .createPromptModule([
         {
             type:'input',
-            message:'What is your GitHub username?',
+            message:'Enter your GitHub username.',
             name:'username',
         },
         {
             type:'input',
-            message:'What is your Email?',
+            message:'Enter your Email.',
             name:'email',
         },
         {
             type:'input',
-            message:'What is the title of your project?',
+            message:'Enter the title of your project.',
             name:'title',
         },
         {
@@ -36,7 +36,7 @@ inquirer
         },
         {
             type:'input',
-            message:'How can others contribute?',
+            message:'Type how can others contribute.',
             name:'contributing',
         },
         {
@@ -45,7 +45,7 @@ inquirer
             name:'tests',
         },
     ]).then(answer)
-    
+
 const questions = [...answer];
 
 // TODO: Create a function to write README file
