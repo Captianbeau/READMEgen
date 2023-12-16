@@ -15,15 +15,15 @@ inquirer
             name:'email',
         },
         {
+            type:'input',
+            message:'Enter the title of your project.',
+            name:'title',
+        },
+        {
             type:'list',
             message:'Choose a license',
             choices:['Academic Free License v3.0','MIT','Eclipse Public License 2.0','GNU General Public License v3.0','Mozilla Public License 2.0'],
             name:'license',
-        },
-        {
-            type:'input',
-            message:'Enter the title of your project.',
-            name:'title',
         },
         {
             type:'input',
@@ -50,18 +50,17 @@ inquirer
             message:'Type how to test your project.',
             name:'tests',
         },
-    ]).then((answer)=>{
-    const questions = {answer};
-    console.log('the Q',questions)  
-     console.log('the A',answer) 
-    }
-    )
+    ]).then(questions)
 
-
+const{email, username, title, license, description, Installation, usage, Contributing, tests} = questions;
+console.log(license)
+//  module.exports = {
+//     license,
+//     }
 
 // TODO: Create a function to write README file
 // function writeToFile() {
-//     fs.appendFile('README', `# ${questions.fileName} \n ## Description \n`)
+//     fs.appendFile('./README.md', `# ${questions.fileName} \n ## Description \n`)
 // }
 
 // TODO: Create a function to initialize app
