@@ -3,7 +3,7 @@ const inquirer = require('inquirer')
 // TODO: Create an array of questions for user input  
 //email, username, title, description, Installation, usage, Contributing, tests, questions
 inquirer
-    .createPromptModule([
+    .prompt([
         {
             type:'input',
             message:'Enter your GitHub username.',
@@ -13,6 +13,12 @@ inquirer
             type:'input',
             message:'Enter your Email.',
             name:'email',
+        },
+        {
+            type:'list',
+            message:'Choose a license',
+            choices:['Academic Free License v3.0','MIT','Eclipse Public License 2.0','GNU General Public License v3.0','Mozilla Public License 2.0'],
+            name:'license',
         },
         {
             type:'input',
@@ -44,14 +50,19 @@ inquirer
             message:'Type how to test your project.',
             name:'tests',
         },
-    ]).then(answer)
+    ]).then((answer)=>{
+    const questions = {answer};
+    console.log('the Q',questions)  
+     console.log('the A',answer) 
+    }
+    )
 
-const questions = [...answer];
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.appendFile('README', `# ${} \n ## Description \n`)
-}
+// function writeToFile() {
+//     fs.appendFile('README', `# ${questions.fileName} \n ## Description \n`)
+// }
 
 // TODO: Create a function to initialize app
 function init() {}
