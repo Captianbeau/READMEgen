@@ -64,8 +64,8 @@ inquirer
         const contents = ['instillation', 'usage', 'contributions', 'tests']
         function writeToFile() {
             // fs.appendFile('./README.md', `# ${questions.fileName} \n ## Description \n ${questions.description} \n`)
-            for (let i = 2; i <= questions.length; i++) {
-                //    fs.appendFile('./README.md',`## ${contents[i-2]} \n ${questions[i]}`)
+            for (const question of questions) {
+                   fs.appendFile('./README.md',`## ${contents[i-2]} \n ${questions[i]}`)
                 console.log(i - 2)
             }
             // //  ## Description \n
