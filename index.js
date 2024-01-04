@@ -60,16 +60,24 @@ inquirer
             license
         }
 
-        const catagories = ['Description', 'Table of Contents', 'Instillation', 'Usage', 'Contributions', 'Tests']
+        const catagories = ['Instillation', 'Usage', 'Contributions', 'Tests']
         const contents = ['instillation', 'usage', 'contributions', 'tests']
         function writeToFile() {
             // fs.appendFile('./README.md', `# ${questions.fileName} \n ## Description \n ${questions.description} \n`)
-            for (const question of questions) {
-                   fs.appendFile('./README.md',`## ${contents[i-2]} \n ${questions[i]}`)
-                console.log(i - 2)
-            }
+            fs.appendFile('README.md',`# ${questions.title}\n ${questions.description} \n ## Table of Contents`,tableOfContents(),
+            `## Installation ${questions.installation}\n ## Usage ${questions.usage}\n ## Contributions ${questions.contributing}\n
+             ## Tests ${questions.tests}`)
+            
+            fs.appendFile()
             // //  ## Description \n
-            // // ${questions.description} \n ## Table of Contents \n ## Installation \n ## Usage \n ## Contributions \n ## Tests)
+            // // 
+            //  \n ## Installation \n ## Usage \n ## Contributions \n ## Tests)
+        }
+        function tableOfContents(){
+            for (const category of catagories) {
+                   `[${category[i]}]${contents[i]} \n`
+                console.log(category[i])
+            }
         }
 
     });
