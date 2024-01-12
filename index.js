@@ -1,11 +1,12 @@
-// TODO: Include packages needed for this application
+//package calls
 const inquirer = require('inquirer')
 const fs = require('fs')
-// TODO: Create an array of questions for user input  
-//email, username, title, description, Installation, usage, Contributing, tests, questions
+
+//Table of contents Items
 const catagories = ['Installation', 'Usage', 'Contributions', 'Tests']
 const contents = ['installation', 'usage', 'contributions', 'tests']
 
+//inquirer start
 inquirer
     .prompt([
         {
@@ -56,12 +57,13 @@ inquirer
         },
     ]).then((userAnswers) => {
         const questions = userAnswers;
+//writeToFile function call
         writeToFile()
-        
 
 
+//writeToFile function start
         function writeToFile() {
-            // fs.appendFile('./README.md', `# ${questions.fileName} \n ## Description \n ${questions.description} \n`)
+
             fs.writeFile('README.md',`# ${questions.title}
 ${questions.description}
 
@@ -96,8 +98,10 @@ If you have further questions my contacts are:
 [GitHub](https://github.com/${questions.username})`,()=>{
     console.log('The deed is done')
 })
-            
-        }
+}
+//writeToFile function end
+
+//table of Contents function start, it's called in writeToFile
         function tableOfContents(){
             const text = []
             for (let i = 0;i < catagories.length; i++ ) {
@@ -105,21 +109,6 @@ If you have further questions my contacts are:
             }
             return text.join('\n')
         }
-
+//table of Contents function end
     });
-
-
-
-
-
-
-
-
-// TODO: Create a function to write README file
-
-
-// TODO: Create a function to initialize app
-function init() { }
-
-// Function call to initialize app
-init();
+//inquirer end
