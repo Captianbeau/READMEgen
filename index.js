@@ -1,7 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
+const fs = require('fs')
 // TODO: Create an array of questions for user input  
 //email, username, title, description, Installation, usage, Contributing, tests, questions
+const catagories = ['Instillation', 'Usage', 'Contributions', 'Tests']
+const contents = ['instillation', 'usage', 'contributions', 'tests']
+
 inquirer
     .prompt([
         {
@@ -22,7 +26,7 @@ inquirer
         {
             type: 'list',
             message: 'Choose a license',
-            choices: ['Academic Free License v3.0', 'MIT', 'Eclipse Public License 2.0', 'GNU General Public License v3.0', 'Mozilla Public License 2.0'],
+            choices: ['Academic_Free_License_v3', 'MIT', 'Eclipse_Public_License_2', 'GNU_General_Public_License_v3', 'Mozilla_Public_License_2'],
             name: 'license',
         },
         {
@@ -52,32 +56,54 @@ inquirer
         },
     ]).then((userAnswers) => {
         const questions = userAnswers;
-
-        const { license } = userAnswers;
-        console.log(license);
         writeToFile()
-        module.exports = {
-            license
-        }
+        
 
-        const catagories = ['Instillation', 'Usage', 'Contributions', 'Tests']
-        const contents = ['instillation', 'usage', 'contributions', 'tests']
+
         function writeToFile() {
             // fs.appendFile('./README.md', `# ${questions.fileName} \n ## Description \n ${questions.description} \n`)
-            fs.appendFile('README.md',`# ${questions.title}\n ${questions.description} \n ## Table of Contents`,tableOfContents(),
-            `## Installation ${questions.installation}\n ## Usage ${questions.usage}\n ## Contributions ${questions.contributing}\n
-             ## Tests ${questions.tests}`)
+            fs.writeFile('README.md',`# ${questions.title}
+${questions.description}
+
+![license](https://img.shields.io/badge/License-${questions.license}-purple)
+
+## Table of Contents
+
+${tableOfContents()}
+
+## Installation 
+
+${questions.installation}
+
+## Usage 
+
+${questions.usage}
+
+## Contributions 
+
+${questions.contributing}
+
+## Tests 
+
+${questions.tests}
+
+## Questions
+
+If you have further questions my contacts are:
+
+Email: [email](mailto:${questions.email})
+
+GitHub: [GitHub](https://github.com/${questions.username})`,()=>{
+    console.log('The deed is done.')
+})
             
-            fs.appendFile()
-            // //  ## Description \n
-            // // 
-            //  \n ## Installation \n ## Usage \n ## Contributions \n ## Tests)
         }
         function tableOfContents(){
-            for (const category of catagories) {
-                   `[${category[i]}]${contents[i]} \n`
-                console.log(category[i])
+            const text = []
+            for (let i = 0;i < catagories.length; i++ ) {
+                   text.push(`- [${catagories[i]}](#${contents[i]})`)
             }
+            return text.join('\n')
         }
 
     });
