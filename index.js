@@ -3,8 +3,8 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 // TODO: Create an array of questions for user input  
 //email, username, title, description, Installation, usage, Contributing, tests, questions
-const catagories = ['Instillation', 'Usage', 'Contributions', 'Tests']
-const contents = ['instillation', 'usage', 'contributions', 'tests']
+const catagories = ['Installation', 'Usage', 'Contributions', 'Tests']
+const contents = ['installation', 'usage', 'contributions', 'tests']
 
 inquirer
     .prompt([
@@ -91,10 +91,10 @@ ${questions.tests}
 
 If you have further questions my contacts are:
 
-Email: [email](mailto:${questions.email})
+[Email](mailto:${questions.email})
 
-GitHub: [GitHub](https://github.com/${questions.username})`,()=>{
-    console.log('The deed is done.')
+[GitHub](https://github.com/${questions.username})`,()=>{
+    console.log('The deed is done')
 })
             
         }
