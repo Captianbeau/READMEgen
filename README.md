@@ -1,5 +1,5 @@
 # READMEgen
-It can be hard to remember what all needs to go into a README, or a monotonous task. This generator is made to ease the struggle. It uses inquirer to get information, for the various categories of the README, from the user. Then It plugs that data into its code to generate a README with the correct Markdown format.
+It can be hard to remember what all needs to go into a README, or it's a monotonous task. This generator is made to ease the struggle. It uses inquirer to get information, for the various categories of the README, from the user. Then It plugs that data into its code to generate a README with the correct Markdown format.
 
 ![license](https://img.shields.io/badge/License-MIT-purple)
 
